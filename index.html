@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 70px);
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .encabezado {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .encabezado h1 {          
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body
+    style="background-image:url(https://th.bing.com/th/id/R.4c68440a0164eaebdae380d33eb551b4?rik=EJZYBhlbe8INlg&pid=ImgRaw&r=0)">
+    <header class="encabezado">
+        <h1>Servicio al cliente</h1>
+    </header>
+
+    <div class="chat-container">
+        <!--<div class="chat-box" id="chat-box"></div>-->
+        <form class="chat-box" id="chat-box">
+
+        </form>
+        <input type="text" id="user-input" placeholder="Ingresa tu consulta">
+        <button onclick="sendMessage()">Enviar</button>
+        <button onclick="limpiarInput()">Limpiar</button>
+    </div>
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            document.getElementById("chat-box").innerHTML += "<div>You: " + userInput + "</div>";
+            document.getElementById("user-input").value = "";
+
+            // Envía el mensaje al servidor Python para procesarlo javascript
+            fetch('/send-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInput })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("chat-box").innerHTML += "<div>Chatbot: " + data.message + "</div>";
+                });
+        }
+        function limpiarInput() {
+            var divs = document.getElementsByClassName("chat-box");
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

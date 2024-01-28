@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Prediccion cancer mama</title>
+</head>
+
+<body>
+  <div>
+    <div class="form-floating" style=" background-color:RGB(255,174,200); margin-top: 30px;">
+      <h3 style="text-align: center; color:#43998e;">PREDICCIÓN CÁNCER DE MAMA</h3>
+      <h4 style="text-align: center; color: #5C3E48;">Datos sobre el tumor necesarios para la predicción</h4>
+      <h4 style="text-align: center; color: #5C3E48;">Integrantes: Granda Anthony, Pomasqui Ricardo, Cachipuendo
+        Jessica, Bedon Erick</h4>
+    </div>
+  </div>
+
+</body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .chat-container {
+      width: 80%;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .chat-messages {
+      height: 300px;
+      overflow-y: scroll;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    .chat-message {
+      margin-bottom: 10px;
+    }
+
+    .chat-message span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .chat-form {
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .chat-form input[type="text"] {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .chat-form input[type="submit"] {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .chat-form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body
+  style="background-image:url(https://static.vecteezy.com/system/resources/previews/001/330/866/original/elegant-dark-gray-background-free-vector.jpg); background-size:100%; background-repeat: no-repeat; background-position: 100%;">
+  <div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+      <!-- Aquí se mostrarán los mensajes -->
+    </div>
+    <form class="chat-form" id="chat-form">
+      <input type="text" id="message" placeholder="Escribe tu mensaje...">
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('chat-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var messageInput = document.getElementById('message');
+      var message = messageInput.value;
+      if (message.trim() !== '') {
+        addMessage('Tú', message);
+        messageInput.value = '';
+      }
+    });
+
+    function addMessage(sender, message) {
+      var chatMessages = document.getElementById('chat-messages');
+      var div = document.createElement('div');
+      div.className = 'chat-message';
+      div.innerHTML = '<span>' + sender + ':</span>' + message;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
+
+</body>
+
+</html>
